@@ -22,36 +22,61 @@ namespace SchedulingAPI.Controllers
         static private IDictionary<string, Timer> resourceRelease = new Dictionary<string, Timer>();
 
         [HttpPost]
-        public async Task<AssignmentResult> AssignSuspender(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
+        public string AssignSuspender(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
         {
+            var id = Guid.NewGuid().ToString();
+
             var env = new Models.SuspenderAssignment.Environment(matches, suspenders);
             var ctrller = new Controller(matches, suspenders);
             var agent = CreateAgent(matches, suspenders);
 
-            var policy = await ctrller.Train(env, agent);
+            var policyTsk = ctrller.Train(env, agent);
 
-            var steps = Solve(env.CreateInitialState(), env, policy);
-            var id = Guid.NewGuid().ToString();
+            savedEnvModels.Add(id, new AssignmentModel { Env = env, Model = policyTsk });
 
-            var result = new AssignmentResult
+            policyTsk.Start();
+
+            return id;
+        }
+
+        [HttpPost]
+        public object CheckStatus(string id)
+        {
+            if (savedEnvModels.ContainsKey(id))
             {
-                Steps = steps,
-                Id = id
-            };
+                switch (savedEnvModels[id].Model.Status)
+                {
+                    case TaskStatus.WaitingToRun:
+                    case TaskStatus.Running:
+                    case TaskStatus.WaitingForChildrenToComplete:
+                        return "running";
 
-            savedEnvModels.Add(id, new AssignmentModel { Env = env, Model = policy });
+                    case TaskStatus.RanToCompletion:
+                        var env = savedEnvModels[id].Env;
+                        var model = savedEnvModels[id].Model.Result;
 
-            var dueTime = (DateTime.Now.AddDays(1) - DateTime.Now).TotalMilliseconds;
+                        var duetime = (DateTime.Now.AddDays(1) - DateTime.Now).TotalMilliseconds;
 
-            var timer = new Timer(_ =>
-            {
-                savedEnvModels.Remove(id);
-                resourceRelease.Remove(id);
-            }, null, (long)dueTime, Timeout.Infinite);
+                        var timer = new Timer(_ =>
+                        {
+                            savedEnvModels.Remove(id);
+                            resourceRelease.Remove(id);
+                        }, null, (long)duetime, Timeout.Infinite);
 
-            resourceRelease.Add(id, timer);
+                        resourceRelease.Add(id, timer);
 
-            return result;
+                        return Solve(env.CreateInitialState(), env, model);
+
+                    case TaskStatus.Canceled:
+                    case TaskStatus.Faulted:
+                        return "failed";
+
+                    default:
+                        return savedEnvModels[id].Model.Status.ToString();
+                }
+            }
+
+            throw new InvalidOperationException($"invalid id {id}");
         }
 
         [HttpPost]
@@ -66,7 +91,7 @@ namespace SchedulingAPI.Controllers
                 return new AssignmentResult
                 {
                     Id = id,
-                    Steps = Solve(envModel.Env.CreateInitialState(), envModel.Env, envModel.Model, modifier)
+                    Steps = Solve(envModel.Env.CreateInitialState(), envModel.Env, envModel.Model.Result, modifier)
                 };
             }
 
@@ -101,7 +126,7 @@ namespace SchedulingAPI.Controllers
 
         private static Vector Transform(Assignments state, IDictionary<int, int> matchIdx, IDictionary<int, int> susIdx, DataCount count)
         {
-            var arr = Enumerable.Range(0, count.Total).Cast<double>().ToArray();
+            var arr = Enumerable.Range(0, count.Total).Select(_ => 0.0).ToArray();
 
             var idx = 0;
 

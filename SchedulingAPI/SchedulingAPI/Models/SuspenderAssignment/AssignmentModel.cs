@@ -2,6 +2,7 @@
 using Animus.ANN.Optimizer.Reinforcement;
 using SchedulingAPI.DTO.SuspenderAssignment;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SchedulingAPI.Models.SuspenderAssignment
 {
@@ -9,6 +10,6 @@ namespace SchedulingAPI.Models.SuspenderAssignment
     {
         public Environment Env { get; set; }
 
-        public IModel<Assignments, IEnumerable<ActionScore<int>>> Model { get; set; }
+        public Task<IModel<Assignments, IEnumerable<ActionScore<int>>>> Model { get; set; }
     }
 }
