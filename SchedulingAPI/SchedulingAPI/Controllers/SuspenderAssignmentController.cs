@@ -9,6 +9,7 @@ using SchedulingAPI.Models.SuspenderAssignment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -16,7 +17,9 @@ namespace SchedulingAPI.Controllers
 {
     public class SuspenderAssignmentController : ApiController
     {
-        static private IDictionary<string, AssignmentModel> savedEnvModels;
+        static private IDictionary<string, AssignmentModel> savedEnvModels = new Dictionary<string, AssignmentModel>();
+
+        static private IDictionary<string, Timer> resourceRelease = new Dictionary<string, Timer>();
 
         [HttpPost]
         public async Task<AssignmentResult> AssignSuspender(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
@@ -37,6 +40,16 @@ namespace SchedulingAPI.Controllers
             };
 
             savedEnvModels.Add(id, new AssignmentModel { Env = env, Model = policy });
+
+            var dueTime = (DateTime.Now.AddDays(1) - DateTime.Now).TotalMilliseconds;
+
+            var timer = new Timer(_ =>
+            {
+                savedEnvModels.Remove(id);
+                resourceRelease.Remove(id);
+            }, null, (long)dueTime, Timeout.Infinite);
+
+            resourceRelease.Add(id, timer);
 
             return result;
         }
