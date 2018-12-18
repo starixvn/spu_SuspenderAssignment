@@ -1,0 +1,3803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>DiffSharp</name></assembly>
+<members>
+<member name="T:DiffSharp.AD.Float32.TraceOp">
+<summary>
+ Operation types recorded in the evaluation trace
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.F(System.UInt32)">
+<summary>
+ Fan-out value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.A(DiffSharp.AD.Float32.DM)">
+<summary>
+ Adjoint value of this DM
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_Subtraction(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Element-wise subtraction of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_Multiply(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DM)">
+<summary>
+ Left-multiply matrix `b` by vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_Multiply(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Right-multiply matrix `a` by vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_Multiply(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Matrix product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_DotMultiply(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Element-wise (Hadamard, Schur) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_DotDivide(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Element-wise (Hadamard, Schur) division `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.op_Addition(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Element-wise addition of `a` and `b`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.T">
+<summary>
+ Tangent value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.PD">
+<summary>
+ Deepest primal value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.P">
+<summary>
+ Primal value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.F">
+<summary>
+ Fan-out value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DM.A">
+<summary>
+ Adjoint value of this DM
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Transpose(DiffSharp.AD.Float32.DM)">
+<summary>
+ Transpose of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Trace(DiffSharp.AD.Float32.DM)">
+<summary>
+ Trace of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Sum(DiffSharp.AD.Float32.DM)">
+<summary>
+ Sum of the entries of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.SolveSymmetric(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `a` is symmetric
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Solve(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `a` has general form
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.MinIndex(DiffSharp.AD.Float32.DM)">
+<summary>
+ Index of the minimum element of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.MaxIndex(DiffSharp.AD.Float32.DM)">
+<summary>
+ Index of the maximum element of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Inverse(DiffSharp.AD.Float32.DM)">
+<summary>
+ Matrix inverse of `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Diagonal(DiffSharp.AD.Float32.DM)">
+<summary>
+ Diagonal of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.Det(DiffSharp.AD.Float32.DM)">
+<summary>
+ Determinant of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.AddSubMatrix(DiffSharp.AD.Float32.DM,System.Int32,System.Int32,DiffSharp.AD.Float32.DM)">
+<summary>
+ Add submatrix `b` to matrix `a`, where the upper left corner of `b` is positioned at row `i` and column `j`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.AddItem(DiffSharp.AD.Float32.DM,System.Int32,System.Int32,DiffSharp.AD.Float32.D)">
+<summary>
+ Add scalar `b` to matrix `a` at row `i` and column `j`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DM.AddDiagonal(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Add the elements of vector `b` to the diagonal elements of matrix `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DM">
+<summary>
+ Matrix numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.F(System.UInt32)">
+<summary>
+ Fan-out counter of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.A(DiffSharp.AD.Float32.DV)">
+<summary>
+ Adjoint value of this DV
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Subtraction(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Generate a vector where each element is the corresponding element of vector `b` subtracted from scalar `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Subtraction(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Subtract scalar `b` from vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Subtraction(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise subtraction of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Multiply(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Multiply vector `b` by scalar `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Multiply(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Multiply vector `a` by scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Multiply(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Inner (dot, scalar) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_DotMultiply(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise (Hadamard, Schur) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_DotDivide(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise (Hadamard, Schur) division of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Division(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Generate a vector where each element is scalar `a` divided by the corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Division(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Divide vector `a` by scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_AmpMultiply(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Outer (dyadic, tensor) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Addition(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Add scalar `a` to vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Addition(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Add scalar `b` to vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.op_Addition(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise addition of `a` and `b`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.T">
+<summary>
+ Tangent value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.PD">
+<summary>
+ Deepest primal value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.P">
+<summary>
+ Primal value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.F">
+<summary>
+ Fan-out counter of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DV.A">
+<summary>
+ Adjoint value of this DV
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Sum(DiffSharp.AD.Float32.DV)">
+<summary>
+ Sum of the elements of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Pow(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Generate a vector where scalar `a` is raised to the power of each corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Pow(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Generate a vector where each corresponding element of vector `a` is raised to the power of scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Pow(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise power of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.MinIndex(DiffSharp.AD.Float32.DV)">
+<summary>
+ Index of the minimum element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.MaxIndex(DiffSharp.AD.Float32.DV)">
+<summary>
+ Index of the maximum element of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.L2NormSq(DiffSharp.AD.Float32.DV)">
+<summary>
+ Squared L2 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.L2Norm(DiffSharp.AD.Float32.DV)">
+<summary>
+ L2 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.L1Norm(DiffSharp.AD.Float32.DV)">
+<summary>
+ L1 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Atan2(DiffSharp.AD.Float32.D,DiffSharp.AD.Float32.DV)">
+<summary>
+ Generate a vector where scalar `a` is raised to the power of each corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Atan2(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D)">
+<summary>
+ Generate a vector where each corresponding element of vector `a` is raised to the power of scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Atan2(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Element-wise atan2 of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.Append(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Append vector `b` to vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.AddSubVector(DiffSharp.AD.Float32.DV,System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Add subvector `b` to vector `a`, starting from index `i`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DV.AddItem(DiffSharp.AD.Float32.DV,System.Int32,DiffSharp.AD.Float32.D)">
+<summary>
+ Add scalar `b` to vector `a` at index `i`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DV">
+<summary>
+ Vector numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.F(System.UInt32)">
+<summary>
+ Fan-out counter of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.A(DiffSharp.AD.Float32.D)">
+<summary>
+ Adjoint value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.T">
+<summary>
+ Tangent value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.PD">
+<summary>
+ Deepest primal value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.P">
+<summary>
+ Primal value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.F">
+<summary>
+ Fan-out counter of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.D.A">
+<summary>
+ Adjoint value of this D
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.D">
+<summary>
+ Scalar numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.curldiv(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.curldiv'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.div(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.div'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.curl(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.curl'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.laplacian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.laplacian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`, at point `x`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.hessianv``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0,``0)">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.hessianv'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0,``0)">
+<summary>
+ Original value and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradhessianv``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0,``0)">
+<summary>
+ Gradient-vector product (directional derivative) and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradhessianv'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0,``0)">
+<summary>
+ Original value, gradient-vector product (directional derivative), and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.hessian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.hessian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradhessian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradhessian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.D},DiffSharp.AD.Float32.DV)">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianT(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianT'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DV)">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianTv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``1)">
+<summary>
+ Transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianTv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``1)">
+<summary>
+ Original value and transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianTv''``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0)">
+<summary>
+ Original value and a function for evaluating the transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`. Of the returned pair, the first is the original value of function `f` at point `x` (the result of the forward pass of the reverse mode AD) and the second is a function (the reverse evaluator) that can compute the transposed Jacobian-vector product many times along many different vectors (performing a new reverse pass of reverse mode AD, with the given vector, without repeating the forward pass). Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Original value and gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.gradv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.jacobianv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Original value and Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.grad``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0)">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.grad'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float32.D},``0)">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`, at point `x`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diffn'``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ Original value and `n`-th derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diffn``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diff2'``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diff2''``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diff2``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diff``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DiffOps.diff'``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,``0},DiffSharp.AD.Float32.D)">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DiffOps">
+<summary>
+ Forward and reverse differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.reverseProp(System.Object,System.Object)">
+<summary>
+ Propagates the adjoint `v` backwards through the evaluation trace of `d`. The adjoints in the trace are reset before the push.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.reverseReset(System.Object)">
+<summary>
+ Resets the adjoints of all the values in the evaluation trace of `d`, preparing for a new reverse propagation
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.reversePush(System.Object,System.Object)">
+<summary>
+ Pushes the adjoint `v` backward through the evaluation trace of `d`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.primalTangent``1(``0)">
+<summary>
+ Get the primal and tangent values of `d`, as a tuple
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.makeReverse``1(System.UInt32,``0)">
+<summary>
+ Make reverse AD type, with tag `i` and primal `p`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.makeForward``1(System.UInt32,``0,``0)">
+<summary>
+ Make forward AD type, with tag `i`, primal `p` and tangent `t`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.toDM``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Create a matrix form sequence of sequences `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.toDV``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Create a vector from sequence `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DOps.convert``2(``0)">
+<summary>
+ Explicit conversion between types where it is permitted. For example: DV -&gt; float32[], float32[,] -&gt; DM
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DOps">
+<summary>
+ D, DV, DM operations (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toString(DiffSharp.AD.Float32.DM)">
+<summary>
+ Experimental
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.prependCol(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DM)">
+<summary>
+ Prepend column `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.appendCol(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DM)">
+<summary>
+ Append column `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.prependRow(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DM)">
+<summary>
+ Prepend row `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.appendRow(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DM)">
+<summary>
+ Append row `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.trace(DiffSharp.AD.Float32.DM)">
+<summary>
+ Trace of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.sum(DiffSharp.AD.Float32.DM)">
+<summary>
+ Sums the elements of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.solveSymmetric(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `m` is symmetric
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.solve(DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `m` has general form
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.normalize(DiffSharp.AD.Float32.DM)">
+<summary>
+ Shift and scale the elements of matrix `m` to be in the range [0, 1]
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.standardize(DiffSharp.AD.Float32.DM)">
+<summary>
+ Shift and scale the elements of matrix `m` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.variance(DiffSharp.AD.Float32.DM)">
+<summary>
+ Variance of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.standardDev(DiffSharp.AD.Float32.DM)">
+<summary>
+ Standard deviation of matrix `m`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DMModule.average">
+<summary>
+ Average of matrix `m`. Same with mean.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mean(DiffSharp.AD.Float32.DM)">
+<summary>
+ Mean of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.minIndex(DiffSharp.AD.Float32.DM)">
+<summary>
+ Index of the minimum entry of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.min(DiffSharp.AD.Float32.DM)">
+<summary>
+ Minimum of the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.maxIndex(DiffSharp.AD.Float32.DM)">
+<summary>
+ Index of the maximum entry of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.max(DiffSharp.AD.Float32.DM)">
+<summary>
+ Maximum of the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapi2Rows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the rows of matrices `m1` and `m2`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapi2Cols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the columns of matrices `m1` and `m2`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.map2Rows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the rows of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.map2Cols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the columns of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapiRows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the rows of matrix `m`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapiCols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV}},DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the columns of matrix `m`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapRows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the rows of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.mapCols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV},DiffSharp.AD.Float32.DM)">
+<summary>
+ Maps function `f` to the columns of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.det(DiffSharp.AD.Float32.DM)">
+<summary>
+ Determinant of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.copy(DiffSharp.AD.Float32.DM)">
+<summary>
+ Creates a copy of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.length2(DiffSharp.AD.Float32.DM)">
+<summary>
+ Number of columns in matrix `m`. Same with DM.cols.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.length1(DiffSharp.AD.Float32.DM)">
+<summary>
+ Number of rows in matrix `m`. Same with DM.rows.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.length(DiffSharp.AD.Float32.DM)">
+<summary>
+ Total number of elements in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iteri2Rows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the rows of matrices `m1` and `m2`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iteri2Cols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the columns of matrices `m1` and `m2`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iter2Rows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the rows of matrices `m1` and `m2
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iter2Cols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the columns of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iteriRows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the rows of matrix `m`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iteriCols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the columns of matrix `m`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iterRows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the rows of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iterCols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.DV,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the columns of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iteri(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the entries of matrix `m`. Indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iter2(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DM,DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the entries of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.iter(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float32.DM)">
+<summary>
+ Iterates function `f` over the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.inverse(DiffSharp.AD.Float32.DM)">
+<summary>
+ Inverse of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.initCols(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,DiffSharp.AD.Float32.DV})">
+<summary>
+ Creates a matrix with `n` columns, where each column is given by `f` as a vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.initRows(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,DiffSharp.AD.Float32.DV})">
+<summary>
+ Creates a matrix with `m` rows, where each row is given by `f` as a vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.init``1(System.Int32,System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,``0}})">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where each element is given by function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.isEmpty(DiffSharp.AD.Float32.DM)">
+<summary>
+ Returns true if matrix `m` is empty, otherwise returns false
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DMModule.empty">
+<summary>
+ Zero matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.diagonal(DiffSharp.AD.Float32.DM)">
+<summary>
+ Gets the diagonal of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.zeroCreate(System.Int32,System.Int32)">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where all entries are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.createCols(System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a matrix with `n` columns, where all columns are equal to `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.createRows(System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a matrix with `m` rows, where all rows are equal to `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.create``1(System.Int32,System.Int32,``0)">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where all entries have value `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.rows(DiffSharp.AD.Float32.DM)">
+<summary>
+ Number of rows in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.cols(DiffSharp.AD.Float32.DM)">
+<summary>
+ Number of columns in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.row(System.Int32,DiffSharp.AD.Float32.DM)">
+<summary>
+ Gets the row with index `i` of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.col(System.Int32,DiffSharp.AD.Float32.DM)">
+<summary>
+ Gets the column with index `j` of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.ofDV(System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a matrix with `m` rows from vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toDV(DiffSharp.AD.Float32.DM)">
+<summary>
+ Converts matrix `m` into a vector by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toCols(DiffSharp.AD.Float32.DM)">
+<summary>
+ Gets the sequence of column vectors in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toRows(DiffSharp.AD.Float32.DM)">
+<summary>
+ Gets the sequence of row vectors in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.ofCols(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float32.DV})">
+<summary>
+ Creates a matrix from a sequence of column vectors `s`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.ofRows(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float32.DV})">
+<summary>
+ Creates a matrix from a sequence of row vectors `s`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.transpose(DiffSharp.AD.Float32.DM)">
+<summary>
+ Transpose of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toArray(DiffSharp.AD.Float32.DM)">
+<summary>
+ Converts matrix `m` into an array by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.ofArray(System.Int32,DiffSharp.AD.Float32.D[])">
+<summary>
+ Creates a matrix with `m` rows from array `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.toArray2D(DiffSharp.AD.Float32.DM)">
+<summary>
+ Converts matrix `m` into a 2D array
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DMModule.ofArray2D(DiffSharp.AD.Float32.D[0:,0:])">
+<summary>
+ Creates a matrix from 2D array `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DMModule">
+<summary>
+ Functional-oriented operations on matrices. Implementing functionality similar to FSharp.Collections.Array2D.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.toDM(System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a matrix with `m` rows from vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.ofDM(DiffSharp.AD.Float32.DM)">
+<summary>
+ Converts matrix `m` into a vector by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.unitDV(DiffSharp.AD.Float32.DV)">
+<summary>
+ Gets the unit vector codirectional with vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.standardBasisVal(System.Int32,System.Int32,System.Single)">
+<summary>
+ Creates a vector with `n` elements where the `i`-th element has value `v` and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.standardBasis(System.Int32,System.Int32)">
+<summary>
+ Creates a vector with `n` elements where the `i`-th element is one and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.sum(DiffSharp.AD.Float32.DV)">
+<summary>
+ Sums the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.splitEqual(System.Int32,DiffSharp.AD.Float32.DV)">
+<summary>
+ Splits vector `v` into `n` subvectors of equal length. The length of vector `v` must be an integer multiple of `n`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.split(System.Collections.Generic.IEnumerable{System.Int32},DiffSharp.AD.Float32.DV)">
+<summary>
+ Splits vector `v` into a sequence of subvectors whose lengths are given in sequence `n`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.concat(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float32.DV})">
+<summary>
+ Concatenates the given sequence of vectors `v` into one vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.prepend(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a vector where elements of `v2` are followed by elements of `v1`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.append(DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a vector where elements of `v1` are followed by elements of `v2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.normSq(DiffSharp.AD.Float32.DV)">
+<summary>
+ Squared L2 norm of vector `v`. Same with DV.l2normSq.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.norm(DiffSharp.AD.Float32.DV)">
+<summary>
+ L2 norm of vector `v`. Same with DV.l2norm.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.normalize(DiffSharp.AD.Float32.DV)">
+<summary>
+ Shift and scale the elements of vector `v` to be in the range [0, 1]
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.standardize(DiffSharp.AD.Float32.DV)">
+<summary>
+ Shift and scale the elements of vector `v` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.variance(DiffSharp.AD.Float32.DV)">
+<summary>
+ Variance of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.standardDev(DiffSharp.AD.Float32.DV)">
+<summary>
+ Standard deviation of vector `v`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DVModule.average">
+<summary>
+ Average of vector `v`. Same with mean.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.mean(DiffSharp.AD.Float32.DV)">
+<summary>
+ Mean of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.minIndex(DiffSharp.AD.Float32.DV)">
+<summary>
+ Index of the minimum element of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.min(DiffSharp.AD.Float32.DV)">
+<summary>
+ Minimum of the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.maxIndex(DiffSharp.AD.Float32.DV)">
+<summary>
+ Index of the maximum element of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.max(DiffSharp.AD.Float32.DV)">
+<summary>
+ Maximum of the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.l2normSq(DiffSharp.AD.Float32.DV)">
+<summary>
+ Squared L2 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.l2norm(DiffSharp.AD.Float32.DV)">
+<summary>
+ L2 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.l1norm(DiffSharp.AD.Float32.DV)">
+<summary>
+ L1 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.length(DiffSharp.AD.Float32.DV)">
+<summary>
+ Length of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.iteri2(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Iterates function `f` over the elements of vectors `v1` and `v2`. An element index is also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.iter2(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DV,DiffSharp.AD.Float32.DV)">
+<summary>
+ Iterates function `f` over the elements of vectors `v1` and `v2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.iteri(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float32.DV)">
+<summary>
+ Iterates function `f` over the elements of vector `v`. An element index is also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.iter(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float32.D,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float32.DV)">
+<summary>
+ Iterates function `f` over the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.isEmpty(DiffSharp.AD.Float32.DV)">
+<summary>
+ Returns true if vector `v` is empty, otherwise returns false
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.init``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,``0})">
+<summary>
+ Creates a vector of `n` elements, where each element is defined by function `f`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float32.DVModule.empty">
+<summary>
+ Empty vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.zeroCreate(System.Int32)">
+<summary>
+ Creates a vector with `n` zero elements
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.create``1(System.Int32,``0)">
+<summary>
+ Creates a vector with `n` elements, each with value `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.copy(DiffSharp.AD.Float32.DV)">
+<summary>
+ Creates a copy of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.toColDM(DiffSharp.AD.Float32.DV)">
+<summary>
+ Converts vector `v` into a column matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.toRowDM(DiffSharp.AD.Float32.DV)">
+<summary>
+ Converts vector `v` into a row matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.toArray(DiffSharp.AD.Float32.DV)">
+<summary>
+ Converts vector `v` into an array
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float32.DVModule.ofArray(DiffSharp.AD.Float32.D[])">
+<summary>
+ Creates a vector from array `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32.DVModule">
+<summary>
+ Functional-oriented operations on vectors. Implementing functionality similar to FSharp.Collections.Array.
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float32">
+<summary>
+ Nested forward and reverse mode automatic differentiation module
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.TraceOp">
+<summary>
+ Operation types recorded in the evaluation trace
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.F(System.UInt32)">
+<summary>
+ Fan-out value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.A(DiffSharp.AD.Float64.DM)">
+<summary>
+ Adjoint value of this DM
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_Subtraction(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Element-wise subtraction of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_Multiply(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DM)">
+<summary>
+ Left-multiply matrix `b` by vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_Multiply(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Right-multiply matrix `a` by vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_Multiply(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Matrix product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_DotMultiply(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Element-wise (Hadamard, Schur) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_DotDivide(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Element-wise (Hadamard, Schur) division `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.op_Addition(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Element-wise addition of `a` and `b`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.T">
+<summary>
+ Tangent value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.PD">
+<summary>
+ Deepest primal value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.P">
+<summary>
+ Primal value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.F">
+<summary>
+ Fan-out value of this DM
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DM.A">
+<summary>
+ Adjoint value of this DM
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Transpose(DiffSharp.AD.Float64.DM)">
+<summary>
+ Transpose of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Trace(DiffSharp.AD.Float64.DM)">
+<summary>
+ Trace of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Sum(DiffSharp.AD.Float64.DM)">
+<summary>
+ Sum of the entries of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.SolveSymmetric(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `a` is symmetric
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Solve(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `a` has general form
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.MinIndex(DiffSharp.AD.Float64.DM)">
+<summary>
+ Index of the minimum element of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.MaxIndex(DiffSharp.AD.Float64.DM)">
+<summary>
+ Index of the maximum element of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Inverse(DiffSharp.AD.Float64.DM)">
+<summary>
+ Matrix inverse of `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Diagonal(DiffSharp.AD.Float64.DM)">
+<summary>
+ Diagonal of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.Det(DiffSharp.AD.Float64.DM)">
+<summary>
+ Determinant of matrix `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.AddSubMatrix(DiffSharp.AD.Float64.DM,System.Int32,System.Int32,DiffSharp.AD.Float64.DM)">
+<summary>
+ Add submatrix `b` to matrix `a`, where the upper left corner of `b` is positioned at row `i` and column `j`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.AddItem(DiffSharp.AD.Float64.DM,System.Int32,System.Int32,DiffSharp.AD.Float64.D)">
+<summary>
+ Add scalar `b` to matrix `a` at row `i` and column `j`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DM.AddDiagonal(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Add the elements of vector `b` to the diagonal elements of matrix `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DM">
+<summary>
+ Matrix numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.F(System.UInt32)">
+<summary>
+ Fan-out counter of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.A(DiffSharp.AD.Float64.DV)">
+<summary>
+ Adjoint value of this DV
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Subtraction(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Generate a vector where each element is the corresponding element of vector `b` subtracted from scalar `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Subtraction(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Subtract scalar `b` from vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Subtraction(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise subtraction of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Multiply(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Multiply vector `b` by scalar `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Multiply(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Multiply vector `a` by scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Multiply(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Inner (dot, scalar) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_DotMultiply(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise (Hadamard, Schur) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_DotDivide(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise (Hadamard, Schur) division of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Division(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Generate a vector where each element is scalar `a` divided by the corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Division(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Divide vector `a` by scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_AmpMultiply(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Outer (dyadic, tensor) product of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Addition(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Add scalar `a` to vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Addition(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Add scalar `b` to vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.op_Addition(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise addition of `a` and `b`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.T">
+<summary>
+ Tangent value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.PD">
+<summary>
+ Deepest primal value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.P">
+<summary>
+ Primal value of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.F">
+<summary>
+ Fan-out counter of this DV
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DV.A">
+<summary>
+ Adjoint value of this DV
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Sum(DiffSharp.AD.Float64.DV)">
+<summary>
+ Sum of the elements of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Pow(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Generate a vector where scalar `a` is raised to the power of each corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Pow(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Generate a vector where each corresponding element of vector `a` is raised to the power of scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Pow(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise power of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.MinIndex(DiffSharp.AD.Float64.DV)">
+<summary>
+ Index of the minimum element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.MaxIndex(DiffSharp.AD.Float64.DV)">
+<summary>
+ Index of the maximum element of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.L2NormSq(DiffSharp.AD.Float64.DV)">
+<summary>
+ Squared L2 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.L2Norm(DiffSharp.AD.Float64.DV)">
+<summary>
+ L2 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.L1Norm(DiffSharp.AD.Float64.DV)">
+<summary>
+ L1 norm of vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Atan2(DiffSharp.AD.Float64.D,DiffSharp.AD.Float64.DV)">
+<summary>
+ Generate a vector where scalar `a` is raised to the power of each corresponding element of vector `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Atan2(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D)">
+<summary>
+ Generate a vector where each corresponding element of vector `a` is raised to the power of scalar `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Atan2(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Element-wise atan2 of `a` and `b`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.Append(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Append vector `b` to vector `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.AddSubVector(DiffSharp.AD.Float64.DV,System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Add subvector `b` to vector `a`, starting from index `i`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DV.AddItem(DiffSharp.AD.Float64.DV,System.Int32,DiffSharp.AD.Float64.D)">
+<summary>
+ Add scalar `b` to vector `a` at index `i`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DV">
+<summary>
+ Vector numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.F(System.UInt32)">
+<summary>
+ Fan-out counter of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.A(DiffSharp.AD.Float64.D)">
+<summary>
+ Adjoint value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.T">
+<summary>
+ Tangent value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.PD">
+<summary>
+ Deepest primal value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.P">
+<summary>
+ Primal value of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.F">
+<summary>
+ Fan-out counter of this D
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.D.A">
+<summary>
+ Adjoint value of this D
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.D">
+<summary>
+ Scalar numeric type keeping dual numbers for forward mode and adjoints and tapes for reverse mode AD, with nesting capability, using tags to avoid perturbation confusion
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.curldiv(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.curldiv'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.div(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.div'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.curl(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.curl'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.laplacian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.laplacian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`, at point `x`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.hessianv``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0,``0)">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.hessianv'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0,``0)">
+<summary>
+ Original value and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradhessianv``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0,``0)">
+<summary>
+ Gradient-vector product (directional derivative) and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradhessianv'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0,``0)">
+<summary>
+ Original value, gradient-vector product (directional derivative), and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`. Reverse-on-forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.hessian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.hessian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradhessian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradhessian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.D},DiffSharp.AD.Float64.DV)">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`, at point `x`. Forward-on-reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianT(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianT'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobian(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobian'(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DV)">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`, at point `x`. Forward or reverse AD, depending on input and output dimensions.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianTv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``1)">
+<summary>
+ Transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianTv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``1)">
+<summary>
+ Original value and transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianTv''``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0)">
+<summary>
+ Original value and a function for evaluating the transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`. Of the returned pair, the first is the original value of function `f` at point `x` (the result of the forward pass of the reverse mode AD) and the second is a function (the reverse evaluator) that can compute the transposed Jacobian-vector product many times along many different vectors (performing a new reverse pass of reverse mode AD, with the given vector, without repeating the forward pass). Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Original value and gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.gradv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianv``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.jacobianv'``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,``0)">
+<summary>
+ Original value and Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.grad``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0)">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.grad'``1(Microsoft.FSharp.Core.FSharpFunc{``0,DiffSharp.AD.Float64.D},``0)">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`, at point `x`. Reverse AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diffn'``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ Original value and `n`-th derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diffn``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diff2'``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diff2''``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diff2``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diff``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DiffOps.diff'``1(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,``0},DiffSharp.AD.Float64.D)">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`, at point `x`. Forward AD.
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DiffOps">
+<summary>
+ Forward and reverse differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.reverseProp(System.Object,System.Object)">
+<summary>
+ Propagates the adjoint `v` backwards through the evaluation trace of `d`. The adjoints in the trace are reset before the push.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.reverseReset(System.Object)">
+<summary>
+ Resets the adjoints of all the values in the evaluation trace of `d`, preparing for a new reverse propagation
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.reversePush(System.Object,System.Object)">
+<summary>
+ Pushes the adjoint `v` backward through the evaluation trace of `d`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.primalTangent``1(``0)">
+<summary>
+ Get the primal and tangent values of `d`, as a tuple
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.makeReverse``1(System.UInt32,``0)">
+<summary>
+ Make reverse AD type, with tag `i` and primal `p`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.makeForward``1(System.UInt32,``0,``0)">
+<summary>
+ Make forward AD type, with tag `i`, primal `p` and tangent `t`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.toDM``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Create a matrix form sequence of sequences `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.toDV``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Create a vector from sequence `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DOps.convert``2(``0)">
+<summary>
+ Explicit conversion between types where it is permitted. For example: DV -&gt; float[], float[,] -&gt; DM
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DOps">
+<summary>
+ D, DV, DM operations (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toString(DiffSharp.AD.Float64.DM)">
+<summary>
+ Experimental
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.prependCol(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DM)">
+<summary>
+ Prepend column `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.appendCol(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DM)">
+<summary>
+ Append column `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.prependRow(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DM)">
+<summary>
+ Prepend row `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.appendRow(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DM)">
+<summary>
+ Append row `v` to matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.trace(DiffSharp.AD.Float64.DM)">
+<summary>
+ Trace of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.sum(DiffSharp.AD.Float64.DM)">
+<summary>
+ Sums the elements of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.solveSymmetric(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `m` is symmetric
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.solve(DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DV)">
+<summary>
+ Solve a system of linear equations Ax = b, where the coefficient matrix `m` has general form
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.normalize(DiffSharp.AD.Float64.DM)">
+<summary>
+ Shift and scale the elements of matrix `m` to be in the range [0, 1]
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.standardize(DiffSharp.AD.Float64.DM)">
+<summary>
+ Shift and scale the elements of matrix `m` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.variance(DiffSharp.AD.Float64.DM)">
+<summary>
+ Variance of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.standardDev(DiffSharp.AD.Float64.DM)">
+<summary>
+ Standard deviation of matrix `m`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DMModule.average">
+<summary>
+ Average of matrix `m`. Same with mean.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mean(DiffSharp.AD.Float64.DM)">
+<summary>
+ Mean of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.minIndex(DiffSharp.AD.Float64.DM)">
+<summary>
+ Index of the minimum entry of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.min(DiffSharp.AD.Float64.DM)">
+<summary>
+ Minimum of the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.maxIndex(DiffSharp.AD.Float64.DM)">
+<summary>
+ Index of the maximum entry of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.max(DiffSharp.AD.Float64.DM)">
+<summary>
+ Maximum of the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapi2Rows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the rows of matrices `m1` and `m2`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapi2Cols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the columns of matrices `m1` and `m2`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.map2Rows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the rows of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.map2Cols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the columns of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapiRows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}},DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the rows of matrix `m`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapiCols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV}},DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the columns of matrix `m`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapRows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the rows of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.mapCols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV},DiffSharp.AD.Float64.DM)">
+<summary>
+ Maps function `f` to the columns of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.det(DiffSharp.AD.Float64.DM)">
+<summary>
+ Determinant of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.copy(DiffSharp.AD.Float64.DM)">
+<summary>
+ Creates a copy of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.length2(DiffSharp.AD.Float64.DM)">
+<summary>
+ Number of columns in matrix `m`. Same with DM.cols.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.length1(DiffSharp.AD.Float64.DM)">
+<summary>
+ Number of rows in matrix `m`. Same with DM.rows.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.length(DiffSharp.AD.Float64.DM)">
+<summary>
+ Total number of elements in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iteri2Rows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the rows of matrices `m1` and `m2`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iteri2Cols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the columns of matrices `m1` and `m2`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iter2Rows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the rows of matrices `m1` and `m2
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iter2Cols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the columns of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iteriRows(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the rows of matrix `m`. Row indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iteriCols(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the columns of matrix `m`. Column indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iterRows(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the rows of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iterCols(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.DV,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the columns of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iteri(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the entries of matrix `m`. Indices are also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iter2(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DM,DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the entries of matrices `m1` and `m2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.iter(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float64.DM)">
+<summary>
+ Iterates function `f` over the entries of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.inverse(DiffSharp.AD.Float64.DM)">
+<summary>
+ Inverse of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.initCols(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,DiffSharp.AD.Float64.DV})">
+<summary>
+ Creates a matrix with `n` columns, where each column is given by `f` as a vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.initRows(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,DiffSharp.AD.Float64.DV})">
+<summary>
+ Creates a matrix with `m` rows, where each row is given by `f` as a vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.init``1(System.Int32,System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,``0}})">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where each element is given by function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.isEmpty(DiffSharp.AD.Float64.DM)">
+<summary>
+ Returns true if matrix `m` is empty, otherwise returns false
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DMModule.empty">
+<summary>
+ Zero matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.diagonal(DiffSharp.AD.Float64.DM)">
+<summary>
+ Gets the diagonal of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.zeroCreate(System.Int32,System.Int32)">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where all entries are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.createCols(System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a matrix with `n` columns, where all columns are equal to `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.createRows(System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a matrix with `m` rows, where all rows are equal to `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.create``1(System.Int32,System.Int32,``0)">
+<summary>
+ Creates a matrix with `m` rows and `n` columns, where all entries have value `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.rows(DiffSharp.AD.Float64.DM)">
+<summary>
+ Number of rows in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.cols(DiffSharp.AD.Float64.DM)">
+<summary>
+ Number of columns in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.row(System.Int32,DiffSharp.AD.Float64.DM)">
+<summary>
+ Gets the row with index `i` of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.col(System.Int32,DiffSharp.AD.Float64.DM)">
+<summary>
+ Gets the column with index `j` of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.ofDV(System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a matrix with `m` rows from vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toDV(DiffSharp.AD.Float64.DM)">
+<summary>
+ Converts matrix `m` into a vector by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toCols(DiffSharp.AD.Float64.DM)">
+<summary>
+ Gets the sequence of column vectors in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toRows(DiffSharp.AD.Float64.DM)">
+<summary>
+ Gets the sequence of row vectors in matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.ofCols(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float64.DV})">
+<summary>
+ Creates a matrix from a sequence of column vectors `s`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.ofRows(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float64.DV})">
+<summary>
+ Creates a matrix from a sequence of row vectors `s`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.transpose(DiffSharp.AD.Float64.DM)">
+<summary>
+ Transpose of matrix `m`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toArray(DiffSharp.AD.Float64.DM)">
+<summary>
+ Converts matrix `m` into an array by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.ofArray(System.Int32,DiffSharp.AD.Float64.D[])">
+<summary>
+ Creates a matrix with `m` rows from array `a`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.toArray2D(DiffSharp.AD.Float64.DM)">
+<summary>
+ Converts matrix `m` into a 2D array
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DMModule.ofArray2D(DiffSharp.AD.Float64.D[0:,0:])">
+<summary>
+ Creates a matrix from 2D array `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DMModule">
+<summary>
+ Functional-oriented operations on matrices. Implementing functionality similar to FSharp.Collections.Array2D.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.toDM(System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a matrix with `m` rows from vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.ofDM(DiffSharp.AD.Float64.DM)">
+<summary>
+ Converts matrix `m` into a vector by stacking its rows
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.unitDV(DiffSharp.AD.Float64.DV)">
+<summary>
+ Gets the unit vector codirectional with vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.standardBasisVal(System.Int32,System.Int32,System.Double)">
+<summary>
+ Creates a vector with `n` elements where the `i`-th element has value `v` and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.standardBasis(System.Int32,System.Int32)">
+<summary>
+ Creates a vector with `n` elements where the `i`-th element is one and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.sum(DiffSharp.AD.Float64.DV)">
+<summary>
+ Sums the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.splitEqual(System.Int32,DiffSharp.AD.Float64.DV)">
+<summary>
+ Splits vector `v` into `n` subvectors of equal length. The length of vector `v` must be an integer multiple of `n`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.split(System.Collections.Generic.IEnumerable{System.Int32},DiffSharp.AD.Float64.DV)">
+<summary>
+ Splits vector `v` into a sequence of subvectors whose lengths are given in sequence `n`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.concat(System.Collections.Generic.IEnumerable{DiffSharp.AD.Float64.DV})">
+<summary>
+ Concatenates the given sequence of vectors `v` into one vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.prepend(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a vector where elements of `v2` are followed by elements of `v1`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.append(DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a vector where elements of `v1` are followed by elements of `v2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.normSq(DiffSharp.AD.Float64.DV)">
+<summary>
+ Squared L2 norm of vector `v`. Same with DV.l2normSq.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.norm(DiffSharp.AD.Float64.DV)">
+<summary>
+ L2 norm of vector `v`. Same with DV.l2norm.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.normalize(DiffSharp.AD.Float64.DV)">
+<summary>
+ Shift and scale the elements of vector `v` to be in the range [0, 1]
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.standardize(DiffSharp.AD.Float64.DV)">
+<summary>
+ Shift and scale the elements of vector `v` to have zero mean and unit variance
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.variance(DiffSharp.AD.Float64.DV)">
+<summary>
+ Variance of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.standardDev(DiffSharp.AD.Float64.DV)">
+<summary>
+ Standard deviation of vector `v`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DVModule.average">
+<summary>
+ Average of vector `v`. Same with mean.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.mean(DiffSharp.AD.Float64.DV)">
+<summary>
+ Mean of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.minIndex(DiffSharp.AD.Float64.DV)">
+<summary>
+ Index of the minimum element of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.min(DiffSharp.AD.Float64.DV)">
+<summary>
+ Minimum of the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.maxIndex(DiffSharp.AD.Float64.DV)">
+<summary>
+ Index of the maximum element of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.max(DiffSharp.AD.Float64.DV)">
+<summary>
+ Maximum of the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.l2normSq(DiffSharp.AD.Float64.DV)">
+<summary>
+ Squared L2 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.l2norm(DiffSharp.AD.Float64.DV)">
+<summary>
+ L2 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.l1norm(DiffSharp.AD.Float64.DV)">
+<summary>
+ L1 norm of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.length(DiffSharp.AD.Float64.DV)">
+<summary>
+ Length of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.iteri2(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit}}},DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Iterates function `f` over the elements of vectors `v1` and `v2`. An element index is also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.iter2(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DV,DiffSharp.AD.Float64.DV)">
+<summary>
+ Iterates function `f` over the elements of vectors `v1` and `v2`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.iteri(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit}},DiffSharp.AD.Float64.DV)">
+<summary>
+ Iterates function `f` over the elements of vector `v`. An element index is also supplied to `f`.
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.iter(Microsoft.FSharp.Core.FSharpFunc{DiffSharp.AD.Float64.D,Microsoft.FSharp.Core.Unit},DiffSharp.AD.Float64.DV)">
+<summary>
+ Iterates function `f` over the elements of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.isEmpty(DiffSharp.AD.Float64.DV)">
+<summary>
+ Returns true if vector `v` is empty, otherwise returns false
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.init``1(System.Int32,Microsoft.FSharp.Core.FSharpFunc{System.Int32,``0})">
+<summary>
+ Creates a vector of `n` elements, where each element is defined by function `f`
+</summary>
+</member>
+<member name="P:DiffSharp.AD.Float64.DVModule.empty">
+<summary>
+ Empty vector
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.zeroCreate(System.Int32)">
+<summary>
+ Creates a vector with `n` zero elements
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.create``1(System.Int32,``0)">
+<summary>
+ Creates a vector with `n` elements, each with value `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.copy(DiffSharp.AD.Float64.DV)">
+<summary>
+ Creates a copy of vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.toColDM(DiffSharp.AD.Float64.DV)">
+<summary>
+ Converts vector `v` into a column matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.toRowDM(DiffSharp.AD.Float64.DV)">
+<summary>
+ Converts vector `v` into a row matrix
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.toArray(DiffSharp.AD.Float64.DV)">
+<summary>
+ Converts vector `v` into an array
+</summary>
+</member>
+<member name="M:DiffSharp.AD.Float64.DVModule.ofArray(DiffSharp.AD.Float64.D[])">
+<summary>
+ Creates a vector from array `a`
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64.DVModule">
+<summary>
+ Functional-oriented operations on vectors. Implementing functionality similar to FSharp.Collections.Array.
+</summary>
+</member>
+<member name="T:DiffSharp.AD.Float64">
+<summary>
+ Nested forward and reverse mode automatic differentiation module
+</summary>
+</member>
+<member name="T:DiffSharp.Backend.Backend`1">
+<summary>
+ Interface for DiffSharp backends
+</summary>
+</member>
+<member name="T:DiffSharp.Backend.OpenBLAS">
+<summary>
+ Backend using OpenBLAS library for BLAS and LAPACK operations, and parallel threads for non-BLAS operations
+</summary>
+</member>
+<member name="T:DiffSharp.Config.GlobalConfig">
+<summary>
+ Global configuration
+</summary>
+</member>
+<member name="T:DiffSharp.Config.Config">
+<summary>
+ Record type holding configuration parameters
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Laplacian(System.Func{System.Single[],System.Single},System.Single[])">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Laplacian(System.Func{System.Single[],System.Single})">
+<summary>
+ Laplacian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Jacobianv(System.Func{System.Single[],System.Single[]},System.Single[],System.Single[])">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.JacobianT(System.Func{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.JacobianT(System.Func{System.Single[],System.Single[]})">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Jacobian(System.Func{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Jacobian(System.Func{System.Single[],System.Single[]})">
+<summary>
+ Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Hessianv(System.Func{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Hessian(System.Func{System.Single[],System.Single},System.Single[])">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Hessian(System.Func{System.Single[],System.Single})">
+<summary>
+ Hessian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Gradv(System.Func{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Grad(System.Func{System.Single[],System.Single},System.Single[])">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Grad(System.Func{System.Single[],System.Single})">
+<summary>
+ Gradient of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Div(System.Func{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Div(System.Func{System.Single[],System.Single[]})">
+<summary>
+ Divergence of a vector-to-vector function `f`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Diff2(System.Func{System.Single,System.Single},System.Single)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Diff2(System.Func{System.Single,System.Single})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Diff(System.Func{System.Single,System.Single},System.Single)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Diff(System.Func{System.Single,System.Single})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Curl(System.Func{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.Numerical.Curl(System.Func{System.Single[],System.Single[]})">
+<summary>
+ Curl of a vector-to-vector function `f`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="T:DiffSharp.Interop.Float32.Numerical">
+<summary>
+ Numerical differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Tanh``1(``0)">
+<summary>
+ Returns the hyperbolic tangent of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Tan``1(``0)">
+<summary>
+ Returns the tangent of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Sqrt``2(``0)">
+<summary>
+ Returns the square root of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Sinh``1(``0)">
+<summary>
+ Returns the hyperbolic sine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Sin``1(``0)">
+<summary>
+ Returns the sine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Round``1(``0)">
+<summary>
+ Rounds a value to the nearest integer or to the specified number of fractional digits.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Pow``2(``0,``1)">
+<summary>
+ Returns a specified number raised to the specified power.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Min``1(``0,``0)">
+<summary>
+ Returns the larger of two specified numbers.
+ Returns the smaller of two numbers.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Log10``1(``0)">
+<summary>
+ Returns the base 10 logarithm of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Log``1(``0)">
+<summary>
+ Returns the logarithm of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Laplacian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Laplacian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D})">
+<summary>
+ Laplacian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Jacobianv(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV)">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.JacobianTv(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV)">
+<summary>
+ Transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.JacobianT(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.JacobianT(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV})">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Jacobian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Jacobian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV})">
+<summary>
+ Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Hessianv(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV)">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Hessian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Hessian(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D})">
+<summary>
+ Hessian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Gradv(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV)">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Grad(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Grad(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.D})">
+<summary>
+ Gradient of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Floor``1(``0)">
+<summary>
+ Returns the largest integer less than or equal to the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Exp``1(``0)">
+<summary>
+ Returns e raised to the specified power.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Div(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Div(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV})">
+<summary>
+ Divergence of a vector-to-vector function `f`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diffn(System.Int32,System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.D)">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diffn(System.Int32,System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D})">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diff2(System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.D)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diff2(System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diff(System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D},DiffSharp.Interop.Float32.D)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Diff(System.Func{DiffSharp.Interop.Float32.D,DiffSharp.Interop.Float32.D})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Curl(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV},DiffSharp.Interop.Float32.DV)">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Curl(System.Func{DiffSharp.Interop.Float32.DV,DiffSharp.Interop.Float32.DV})">
+<summary>
+ Curl of a vector-to-vector function `f`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Cosh``1(``0)">
+<summary>
+ Returns the hyperbolic cosine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Cos``1(``0)">
+<summary>
+ Returns the cosine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Ceiling``1(``0)">
+<summary>
+ Returns the smallest integer greater than or equal to the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Atan2``2(``0,``0)">
+<summary>
+ Returns the angle whose tangent is the quotient of two specified numbers.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Atan``1(``0)">
+<summary>
+ Returns the angle whose tangent is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Asin``1(``0)">
+<summary>
+ Returns the angle whose sine is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Acos``1(``0)">
+<summary>
+ Returns the angle whose cosine is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float32.AD.Abs``1(``0)">
+<summary>
+ Returns the absolute value of a specified number.
+</summary>
+</member>
+<member name="T:DiffSharp.Interop.Float32.AD">
+<summary>
+ Nested forward and reverse mode automatic differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Laplacian(System.Func{System.Double[],System.Double},System.Double[])">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Laplacian(System.Func{System.Double[],System.Double})">
+<summary>
+ Laplacian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Jacobianv(System.Func{System.Double[],System.Double[]},System.Double[],System.Double[])">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.JacobianT(System.Func{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.JacobianT(System.Func{System.Double[],System.Double[]})">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Jacobian(System.Func{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Jacobian(System.Func{System.Double[],System.Double[]})">
+<summary>
+ Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Hessianv(System.Func{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Hessian(System.Func{System.Double[],System.Double},System.Double[])">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Hessian(System.Func{System.Double[],System.Double})">
+<summary>
+ Hessian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Gradv(System.Func{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Grad(System.Func{System.Double[],System.Double},System.Double[])">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Grad(System.Func{System.Double[],System.Double})">
+<summary>
+ Gradient of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Div(System.Func{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Div(System.Func{System.Double[],System.Double[]})">
+<summary>
+ Divergence of a vector-to-vector function `f`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Diff2(System.Func{System.Double,System.Double},System.Double)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Diff2(System.Func{System.Double,System.Double})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Diff(System.Func{System.Double,System.Double},System.Double)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Diff(System.Func{System.Double,System.Double})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Curl(System.Func{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.Numerical.Curl(System.Func{System.Double[],System.Double[]})">
+<summary>
+ Curl of a vector-to-vector function `f`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="T:DiffSharp.Interop.Float64.Numerical">
+<summary>
+ Numerical differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Tanh``1(``0)">
+<summary>
+ Returns the hyperbolic tangent of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Tan``1(``0)">
+<summary>
+ Returns the tangent of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Sqrt``2(``0)">
+<summary>
+ Returns the square root of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Sinh``1(``0)">
+<summary>
+ Returns the hyperbolic sine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Sin``1(``0)">
+<summary>
+ Returns the sine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Round``1(``0)">
+<summary>
+ Rounds a value to the nearest integer or to the specified number of fractional digits.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Pow``2(``0,``1)">
+<summary>
+ Returns a specified number raised to the specified power.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Min``1(``0,``0)">
+<summary>
+ Returns the larger of two specified numbers.
+ Returns the smaller of two numbers.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Log10``1(``0)">
+<summary>
+ Returns the base 10 logarithm of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Log``1(``0)">
+<summary>
+ Returns the logarithm of a specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Laplacian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Laplacian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D})">
+<summary>
+ Laplacian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Jacobianv(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV)">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.JacobianTv(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV)">
+<summary>
+ Transposed Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.JacobianT(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.JacobianT(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV})">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Jacobian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Jacobian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV})">
+<summary>
+ Jacobian of a vector-to-vector function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Hessianv(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV)">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Hessian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Hessian(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D})">
+<summary>
+ Hessian of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Gradv(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV)">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Grad(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Grad(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.D})">
+<summary>
+ Gradient of a vector-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Floor``1(``0)">
+<summary>
+ Returns the largest integer less than or equal to the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Exp``1(``0)">
+<summary>
+ Returns e raised to the specified power.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Div(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Div(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV})">
+<summary>
+ Divergence of a vector-to-vector function `f`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diffn(System.Int32,System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.D)">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diffn(System.Int32,System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D})">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diff2(System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.D)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diff2(System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diff(System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D},DiffSharp.Interop.Float64.D)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Diff(System.Func{DiffSharp.Interop.Float64.D,DiffSharp.Interop.Float64.D})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Curl(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV},DiffSharp.Interop.Float64.DV)">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Curl(System.Func{DiffSharp.Interop.Float64.DV,DiffSharp.Interop.Float64.DV})">
+<summary>
+ Curl of a vector-to-vector function `f`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Cosh``1(``0)">
+<summary>
+ Returns the hyperbolic cosine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Cos``1(``0)">
+<summary>
+ Returns the cosine of the specified angle.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Ceiling``1(``0)">
+<summary>
+ Returns the smallest integer greater than or equal to the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Atan2``2(``0,``0)">
+<summary>
+ Returns the angle whose tangent is the quotient of two specified numbers.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Atan``1(``0)">
+<summary>
+ Returns the angle whose tangent is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Asin``1(``0)">
+<summary>
+ Returns the angle whose sine is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Acos``1(``0)">
+<summary>
+ Returns the angle whose cosine is the specified number.
+</summary>
+</member>
+<member name="M:DiffSharp.Interop.Float64.AD.Abs``1(``0)">
+<summary>
+ Returns the absolute value of a specified number.
+</summary>
+</member>
+<member name="T:DiffSharp.Interop.Float64.AD">
+<summary>
+ Nested forward and reverse mode automatic differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.curldiv(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.curldiv'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.div(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.div'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.curl(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.curl'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobianv'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[],System.Single[])">
+<summary>
+ Original value and Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobianv(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[],System.Single[])">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobian(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobian'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobianT(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.jacobianT'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single[]},System.Single[])">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.laplacian(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.laplacian'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradhessianv(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Gradient-vector product (directional derivative) and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradhessianv'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Original value, gradient-vector product (directional derivative), and Hessian-vector product of a vector-to-scalar funtion `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.hessianv(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.hessianv'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Original value and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.hessian(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.hessian'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradhessian(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradhessian'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.grad(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.grad'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[])">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.diff2''(Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single},System.Single)">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.diff2'(Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single},System.Single)">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.diff2(Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single},System.Single)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradv'(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Original value and gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.gradv(Microsoft.FSharp.Core.FSharpFunc{System.Single[],System.Single},System.Single[],System.Single[])">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.diff'(Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single},System.Single)">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float32.DiffOps.diff(Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single},System.Single)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="T:DiffSharp.Numerical.Float32.DiffOps">
+<summary>
+ Numerical differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="T:DiffSharp.Numerical.Float32">
+<summary>
+ Numerical differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.curldiv(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.curldiv'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.div(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.div'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.curl(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.curl'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobianv'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[],System.Double[])">
+<summary>
+ Original value and Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobianv(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[],System.Double[])">
+<summary>
+ Jacobian-vector product of a vector-to-vector function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobian(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobian'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobianT(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.jacobianT'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double[]},System.Double[])">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.laplacian(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.laplacian'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradhessianv(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Gradient-vector product (directional derivative) and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradhessianv'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Original value, gradient-vector product (directional derivative), and Hessian-vector product of a vector-to-scalar funtion `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.hessianv(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.hessianv'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Original value and Hessian-vector product of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.hessian(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.hessian'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradhessian(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradhessian'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.grad(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.grad'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[])">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.diff2''(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double},System.Double)">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.diff2'(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double},System.Double)">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.diff2(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double},System.Double)">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradv'(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Original value and gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.gradv(Microsoft.FSharp.Core.FSharpFunc{System.Double[],System.Double},System.Double[],System.Double[])">
+<summary>
+ Gradient-vector product (directional derivative) of a vector-to-scalar function `f`, at point `x`, along vector `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.diff'(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double},System.Double)">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Numerical.Float64.DiffOps.diff(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double},System.Double)">
+<summary>
+ First derivative of a scalar-to-scalar function `f`, at point `x`
+</summary>
+</member>
+<member name="T:DiffSharp.Numerical.Float64.DiffOps">
+<summary>
+ Numerical differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="T:DiffSharp.Numerical.Float64">
+<summary>
+ Numerical differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.curldiv(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.curldiv'(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.div(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.div'(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.curl(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.curl'(Microsoft.FSharp.Quotations.FSharpExpr,System.Single[])">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.gradhessian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.gradhessian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.hessian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.hessian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.laplacian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.laplacian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.jacobian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.jacobian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.jacobianT'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.jacobianT(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.grad'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.grad(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Gradient of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diff2''(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diff2'(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diff2(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diffn'(System.Int32,Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ Original value and `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diffn(System.Int32,Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diff'(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.DiffOps.diff(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Single,System.Single}})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float32.DiffOps">
+<summary>
+ Symbolic differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.evalVV(System.Single[],Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate vector-to-vector Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.evalVS(System.Single[],Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate vector-to-scalar Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.evalSS(System.Single,Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate scalar-to-scalar Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.diffExprN(Microsoft.FSharp.Quotations.FSharpVar,System.Int32)">
+<summary>
+ Compute the `n`-th derivative of an Expr, with respect to Var `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.getExprArgs(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Get the arguments of a function given in Expr `expr`, as a Var array
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.expand(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Completely expand Expr `expr`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.simplify(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Simplify Expr `expr`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float32.ExprOps.diffExpr(Microsoft.FSharp.Quotations.FSharpVar,Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Recursively traverse and differentiate Expr `expr` with respect to Var `v`
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float32.ExprOps">
+<summary>
+ Symbolic differentiation expression operations module (automatically opened)
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float32">
+<summary>
+ Symbolic differentiation module
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.curldiv(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Curl and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.curldiv'(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Original value, curl, and divergence of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.div(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.div'(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Original value and divergence of a vector-to-vector function `f`, at point `x`. Defined only for functions with a square Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.curl(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.curl'(Microsoft.FSharp.Quotations.FSharpExpr,System.Double[])">
+<summary>
+ Original value and curl of a vector-to-vector function `f`, at point `x`. Supported only for functions with a three-by-three Jacobian matrix.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.gradhessian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Gradient and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.gradhessian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value, gradient, and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.hessian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.hessian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Hessian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.laplacian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Laplacian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.laplacian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Laplacian of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.jacobian'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.jacobian(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.jacobianT'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and transposed Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.jacobianT(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Transposed Jacobian of a vector-to-vector function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.grad'(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Original value and gradient of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.grad(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Gradient of a vector-to-scalar function `f`. Function should have multiple variables in curried form, instead of an array variable as in other parts of the library.
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diff2''(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ Original value, first derivative, and second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diff2'(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ Original value and second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diff2(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ Second derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diffn'(System.Int32,Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ Original value and `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diffn(System.Int32,Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ `n`-th derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diff'(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ Original value and first derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.DiffOps.diff(Microsoft.FSharp.Quotations.FSharpExpr{Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double}})">
+<summary>
+ First derivative of a scalar-to-scalar function `f`
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float64.DiffOps">
+<summary>
+ Symbolic differentiation operations module (automatically opened)
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.evalVV(System.Double[],Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate vector-to-vector Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.evalVS(System.Double[],Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate vector-to-scalar Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.evalSS(System.Double,Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Evaluate scalar-to-scalar Expr `expr`, at point `x`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.diffExprN(Microsoft.FSharp.Quotations.FSharpVar,System.Int32)">
+<summary>
+ Compute the `n`-th derivative of an Expr, with respect to Var `v`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.getExprArgs(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Get the arguments of a function given in Expr `expr`, as a Var array
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.expand(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Completely expand Expr `expr`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.simplify(Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Simplify Expr `expr`
+</summary>
+</member>
+<member name="M:DiffSharp.Symbolic.Float64.ExprOps.diffExpr(Microsoft.FSharp.Quotations.FSharpVar,Microsoft.FSharp.Quotations.FSharpExpr)">
+<summary>
+ Recursively traverse and differentiate Expr `expr` with respect to Var `v`
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float64.ExprOps">
+<summary>
+ Symbolic differentiation expression operations module (automatically opened)
+</summary>
+</member>
+<member name="T:DiffSharp.Symbolic.Float64">
+<summary>
+ Symbolic differentiation module
+</summary>
+</member>
+<member name="T:DiffSharp.Util.GlobalTagger">
+<summary>
+ Global tagger for nested D operations
+</summary>
+</member>
+<member name="T:DiffSharp.Util.Tagger">
+<summary>
+ Tagger for generating incremental integers
+</summary>
+</member>
+<member name="M:DiffSharp.Util.copyUpperToLower``1(``0[0:,0:])">
+<summary>
+ Copies the upper triangular elements of the square matrix given in the 2d array `m` to the lower triangular part
+</summary>
+</member>
+<member name="M:DiffSharp.Util.standardBasisVal``1(System.Int32,System.Int32,``0)">
+<summary>
+ Gets an array of size `n`, where the `i`-th element has value `v` and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.Util.standardBasis``1(System.Int32,System.Int32)">
+<summary>
+ Gets an array of size `n`, where the `i`-th element is 1 and the rest of the elements are zero
+</summary>
+</member>
+<member name="M:DiffSharp.Util.hash(System.Object[])">
+<summary>
+ Computes a combined hash code for the objects in array `o`
+</summary>
+</member>
+<member name="P:DiffSharp.Util.log10ValFloat64">
+<summary>
+ Value of log 10.
+</summary>
+</member>
+<member name="M:DiffSharp.Util.sndtrd``3(``0,``1,``2)">
+<summary>
+ Gets the second and third terms of a 3-tuple
+</summary>
+</member>
+<member name="M:DiffSharp.Util.fsttrd``3(``0,``1,``2)">
+<summary>
+ Gets the first and third terms of a 3-tuple
+</summary>
+</member>
+<member name="M:DiffSharp.Util.trd``3(``0,``1,``2)">
+<summary>
+ Gets the tail of a 3-tuple
+</summary>
+</member>
+<member name="M:DiffSharp.Util.snd3``3(``0,``1,``2)">
+<summary>
+ Gets the second term of a 3-tuple
+</summary>
+</member>
+<member name="M:DiffSharp.Util.fst3``3(``0,``1,``2)">
+<summary>
+ Gets the first term of a 3-tuple
+</summary>
+</member>
+<member name="T:DiffSharp.Util.Array2D">
+<summary>
+ Extensions for the FSharp.Collections.Array2D module
+</summary>
+</member>
+<member name="T:DiffSharp.Util.Array">
+<summary>
+ Extensions for the FSharp.Collections.Array module
+</summary>
+</member>
+<member name="T:DiffSharp.Util">
+<summary>
+ Various utility functions
+</summary>
+</member>
+</members>
+</doc>
