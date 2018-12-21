@@ -41,7 +41,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
         public IEnumerable<int> GetActions(Assignments state)
         {
             yield return -1;
-
+            
             foreach (var sus in suspenders.Values)
             {
                 if (IsBigMatch(state.CurrentMatch.MatchId) && BigMatchFilter(sus, state))
@@ -109,7 +109,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
         private bool IsBigMatch(int match)
         {
-            return matches[match].MaxBet >= 180;
+            return matches[match].MaxBet / 1000 >= 180;
         }
 
         private bool InWorkHour(Suspender suspender, Assignments state)
