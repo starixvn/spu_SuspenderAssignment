@@ -22,15 +22,15 @@ namespace SchedulingAPI.Controllers
         static private IDictionary<string, Timer> resourceRelease = new Dictionary<string, Timer>();
 
         [HttpPost]
-        public string AssignSuspender(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
+        public string AssignSuspender(DataHolder data)
         {
             var id = Guid.NewGuid().ToString();
 
-            var env = new Models.SuspenderAssignment.Environment(matches, suspenders);
-            var ctrller = new Controller(matches, suspenders);
-            var agent = CreateAgent(matches, suspenders);
+            var env = new Models.SuspenderAssignment.Environment(data.Matches, data.Suspenders);
+            var ctrller = new Controller(data.Matches, data.Suspenders);
+            var agent = CreateAgent(data.Matches, data.Suspenders);
 
-            var policyTsk = ctrller.Train(env, agent);
+            var policyTsk = new Task<IModel<Assignments, IEnumerable<ActionScore<int>>>>(() => ctrller.Train(env, agent));
 
             savedEnvModels.Add(id, new AssignmentModel { Env = env, Model = policyTsk });
 
@@ -40,62 +40,65 @@ namespace SchedulingAPI.Controllers
         }
 
         [HttpPost]
-        public object CheckStatus(string id)
+        public RunStatus CheckStatus([FromBody] string assignmentId)
         {
-            if (savedEnvModels.ContainsKey(id))
+            if (savedEnvModels.ContainsKey(assignmentId))
             {
-                switch (savedEnvModels[id].Model.Status)
+                switch (savedEnvModels[assignmentId].Model.Status)
                 {
                     case TaskStatus.WaitingToRun:
                     case TaskStatus.Running:
                     case TaskStatus.WaitingForChildrenToComplete:
-                        return "running";
+                        return new RunStatus { Code = 1 };
 
                     case TaskStatus.RanToCompletion:
-                        var env = savedEnvModels[id].Env;
-                        var model = savedEnvModels[id].Model.Result;
+                        var env = savedEnvModels[assignmentId].Env;
+                        var model = savedEnvModels[assignmentId].Model.Result;
 
                         var duetime = (DateTime.Now.AddDays(1) - DateTime.Now).TotalMilliseconds;
 
-                        var timer = new Timer(_ =>
+                        if (!resourceRelease.ContainsKey(assignmentId))
                         {
-                            savedEnvModels.Remove(id);
-                            resourceRelease.Remove(id);
-                        }, null, (long)duetime, Timeout.Infinite);
+                            var timer = new Timer(_ =>
+                            {
+                                savedEnvModels.Remove(assignmentId);
+                                resourceRelease.Remove(assignmentId);
+                            }, null, (long)duetime, Timeout.Infinite);
 
-                        resourceRelease.Add(id, timer);
+                            resourceRelease.Add(assignmentId, timer);
+                        }
 
-                        return Solve(env.CreateInitialState(), env, model);
+                        return new RunStatus { Code = 0, Data = Solve(env.CreateInitialState(), env, model) };
 
                     case TaskStatus.Canceled:
                     case TaskStatus.Faulted:
-                        return "failed";
+                        return new RunStatus { Code = -1 };
 
                     default:
-                        return savedEnvModels[id].Model.Status.ToString();
+                        return new RunStatus { Code = -1, Data = savedEnvModels[assignmentId].Model.Status.ToString() };
                 }
             }
 
-            throw new InvalidOperationException($"invalid id {id}");
+            throw new InvalidOperationException($"invalid id {assignmentId}");
         }
 
         [HttpPost]
-        public AssignmentResult ChangeAssignment(string id, IEnumerable<AssignmentStep> steps)
+        public AssignmentResult ChangeAssignment(string assignmentId, IEnumerable<AssignmentStep> steps)
         {
-            if (savedEnvModels.ContainsKey(id))
+            if (savedEnvModels.ContainsKey(assignmentId))
             {
-                var envModel = savedEnvModels[id];
+                var envModel = savedEnvModels[assignmentId];
 
                 var modifier = new PolicyModifier(steps);
 
                 return new AssignmentResult
                 {
-                    Id = id,
+                    Id = assignmentId,
                     Steps = Solve(envModel.Env.CreateInitialState(), envModel.Env, envModel.Model.Result, modifier)
                 };
             }
 
-            throw new InvalidOperationException($"No model with id {id}");
+            throw new InvalidOperationException($"No model with id {assignmentId}");
         }
 
         private static INN<Assignments, Vector> CreateAgent(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)

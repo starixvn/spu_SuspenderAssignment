@@ -27,7 +27,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
         public override double Discount => 0.99;
 
-        public override int Threads => 8;
+        public override int Threads => 1;
 
         public override IAsyncOptimizer Optimizer => new RmsConfig();
 

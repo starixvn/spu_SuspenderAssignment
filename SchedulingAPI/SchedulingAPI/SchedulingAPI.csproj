@@ -15,7 +15,7 @@
     <AssemblyName>SchedulingAPI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -42,10 +42,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Animus">
+    <Reference Include="Animus, Version=3.0.6914.21162, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Projects\SuspenderAssignment\Dependency\Animus\Animus.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Logging, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Logging.2.0.0\lib\net461\Fanex.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Projects\SuspenderAssignment\Dependency\Animus\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
@@ -105,12 +114,15 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\SuspenderAssignmentController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DTO\SuspenderAssignment\AssignmentResult.cs" />
     <Compile Include="DTO\SuspenderAssignment\AssignmentStep.cs" />
     <Compile Include="DTO\SuspenderAssignment\Assignments.cs" />
     <Compile Include="DTO\SuspenderAssignment\Bettype.cs" />
+    <Compile Include="DTO\SuspenderAssignment\DataHolder.cs" />
     <Compile Include="DTO\SuspenderAssignment\Match.cs" />
     <Compile Include="DTO\SuspenderAssignment\Provider.cs" />
+    <Compile Include="DTO\SuspenderAssignment\RunStatus.cs" />
     <Compile Include="DTO\SuspenderAssignment\Suspender.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -125,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

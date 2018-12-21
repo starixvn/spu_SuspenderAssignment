@@ -57,7 +57,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
         public bool IsTerminalState(Assignments state)
         {
-            return state.CurrentMatch == null;
+            return state == null;
         }
 
         public Assignments NextState(Assignments state, int action)
