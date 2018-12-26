@@ -8,9 +8,9 @@ namespace SchedulingAPI.DTO.SuspenderAssignment
 
         public Queue<Bettype> BettypeQueue { get; set; }
 
-        public IDictionary<int, HashSet<int>> AssignedSuspenderMatch { get; set; }
+        public IDictionary<string, HashSet<int>> AssignedSuspenderMatch { get; set; }
 
-        public IDictionary<int, HashSet<Bettype>> AssignedSuspenderBettype { get; set; }
+        public IDictionary<string, HashSet<Bettype>> AssignedSuspenderBettype { get; set; }
 
         public Match CurrentMatch { get; set; }
 
@@ -24,8 +24,8 @@ namespace SchedulingAPI.DTO.SuspenderAssignment
                 CurrentMatch = CurrentMatch,
                 CurrentBettype = CurrentBettype,
                 BettypeQueue = new Queue<Bettype>(BettypeQueue),
-                AssignedSuspenderMatch = new Dictionary<int, HashSet<int>>(AssignedSuspenderMatch),
-                AssignedSuspenderBettype = new Dictionary<int, HashSet<Bettype>>(AssignedSuspenderBettype)
+                AssignedSuspenderMatch = new Dictionary<string, HashSet<int>>(AssignedSuspenderMatch),
+                AssignedSuspenderBettype = new Dictionary<string, HashSet<Bettype>>(AssignedSuspenderBettype)
             };
         }
     }

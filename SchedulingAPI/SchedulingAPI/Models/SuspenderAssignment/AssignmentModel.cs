@@ -10,6 +10,6 @@ namespace SchedulingAPI.Models.SuspenderAssignment
     {
         public Environment Env { get; set; }
 
-        public Task<IModel<Assignments, IEnumerable<ActionScore<int>>>> Model { get; set; }
+        public Task<IModel<Assignments, IEnumerable<ActionScore<string>>>> Model { get; set; }
     }
 }

@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace SchedulingAPI.Models.SuspenderAssignment
 {
-    public class Environment : IEnvironment<Assignments, int>
+    public class Environment : IEnvironment<Assignments, string>
     {
         private int matchDuration = 120;
 
         private readonly IDictionary<int, Match> matches;
 
-        private readonly IDictionary<int, Suspender> suspenders;
+        private readonly IDictionary<string, Suspender> suspenders;
 
         public Environment(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
         {
@@ -32,15 +32,15 @@ namespace SchedulingAPI.Models.SuspenderAssignment
                 MatchQueue = matchQueue,
                 CurrentMatch = matches[firstMatch],
                 CurrentBettype = Bettype.Main,
-                AssignedSuspenderMatch = new Dictionary<int, HashSet<int>>(),
+                AssignedSuspenderMatch = new Dictionary<string, HashSet<int>>(),
                 BettypeQueue = bettypes,
-                AssignedSuspenderBettype = new Dictionary<int, HashSet<Bettype>>()
+                AssignedSuspenderBettype = new Dictionary<string, HashSet<Bettype>>()
             };
         }
 
-        public IEnumerable<int> GetActions(Assignments state)
+        public IEnumerable<string> GetActions(Assignments state)
         {
-            yield return -1;
+            yield return null;
             
             foreach (var sus in suspenders.Values)
             {
@@ -60,24 +60,24 @@ namespace SchedulingAPI.Models.SuspenderAssignment
             return state == null;
         }
 
-        public Assignments NextState(Assignments state, int action)
+        public Assignments NextState(Assignments state, string action)
         {
             var newState = state.Clone();
 
-            if (newState.AssignedSuspenderMatch.ContainsKey(action))
+            if (action != null && newState.AssignedSuspenderMatch.ContainsKey(action))
             {
                 newState.AssignedSuspenderMatch[action].Add(state.CurrentMatch.MatchId);
             }
-            else if (action != -1)
+            else if (action != null)
             {
                 newState.AssignedSuspenderMatch.Add(action, new HashSet<int> { state.CurrentMatch.MatchId });
             }
 
-            if (newState.AssignedSuspenderBettype.ContainsKey(action))
+            if (action != null && newState.AssignedSuspenderBettype.ContainsKey(action))
             {
                 newState.AssignedSuspenderBettype[action].Add(state.CurrentBettype);
             }
-            else if (action != -1)
+            else if (action != null)
             {
                 newState.AssignedSuspenderBettype.Add(action, new HashSet<Bettype> { state.CurrentBettype });
             }
@@ -96,7 +96,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
                     newState.CurrentMatch = next_match;
                     newState.BettypeQueue = bettypes;
                     newState.CurrentBettype = Bettype.Main;
-                    newState.AssignedSuspenderBettype = new Dictionary<int, HashSet<Bettype>>();
+                    newState.AssignedSuspenderBettype = new Dictionary<string, HashSet<Bettype>>();
                 }
             }
             else

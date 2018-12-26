@@ -2,7 +2,7 @@
 {
     public class AssignmentStep
     {
-        public int SusId { get; set; }
+        public string SusId { get; set; }
 
         public int Matchid { get; set; }
 

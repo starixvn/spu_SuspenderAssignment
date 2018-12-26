@@ -5,24 +5,24 @@ using System.Linq;
 
 namespace SchedulingAPI.Models.SuspenderAssignment
 {
-    public class Controller : A3C<Assignments, int>
+    public class Controller : A3C<Assignments, string>
     {
         private int maxGame = 500;
 
-        private IDictionary<int, int> susIndexer;
+        private IDictionary<string, int> susIndexer;
 
         private double maxBet;
 
         private IDictionary<int, Match> matchDict;
 
-        private IDictionary<int, Suspender> susDict;
+        private IDictionary<string, Suspender> susDict;
 
         public Controller(IEnumerable<Match> matches, IEnumerable<Suspender> suspenders)
         {
             matchDict = matches.ToDictionary(m => m.MatchId);
             susDict = suspenders.ToDictionary(s => s.SusId);
             maxBet = matches.Max(m => m.MaxBet);
-            susIndexer = suspenders.Select((s, i) => new KeyValuePair<int, int>(s.SusId, i)).ToDictionary(kv => kv.Key, kv => kv.Value);
+            susIndexer = suspenders.Select((s, i) => new KeyValuePair<string, int>(s.SusId, i)).ToDictionary(kv => kv.Key, kv => kv.Value);
         }
 
         public override double Discount => 0.99;
@@ -31,14 +31,14 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
         public override IAsyncOptimizer Optimizer => new RmsConfig();
 
-        public override int ActionIndex(int action) => action == -1 ? 0 : susIndexer[action] + 1;
+        public override int ActionIndex(string action) => action == null ? 0 : susIndexer[action] + 1;
 
-        public override double Reward(Assignments state, int action, Assignments nextState)
+        public override double Reward(Assignments state, string action, Assignments nextState)
         {
             var score = -state.CurrentMatch.MaxBet / maxBet;
             var minors = state.CurrentMatch.PickedBettypes.Count - 1;
 
-            if (action == -1)
+            if (action == null)
             {
                 if (state.CurrentBettype == Bettype.Main)
                 {

@@ -8,7 +8,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 {
     public class PolicyModifier
     {
-        IDictionary<(int matchId, Bettype bettype), int> modifier;
+        IDictionary<(int matchId, Bettype bettype), string> modifier;
 
         public PolicyModifier(IEnumerable<AssignmentStep> steps)
         {
@@ -20,7 +20,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
             return modifier.ContainsKey((matchId, bt));
         }
 
-        public int Modify(int matchId, Bettype bt)
+        public string Modify(int matchId, Bettype bt)
         {
             return modifier[(matchId, bt)];
         }

@@ -14,6 +14,6 @@ namespace SchedulingAPI.DTO.SuspenderAssignment
 
         public bool InLineWithTV { get; set; }
 
-        public int SusId { get; set; }
+        public string SusId { get; set; }
     }
 }

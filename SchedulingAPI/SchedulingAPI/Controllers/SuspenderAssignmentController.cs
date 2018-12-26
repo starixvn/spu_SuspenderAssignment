@@ -30,7 +30,7 @@ namespace SchedulingAPI.Controllers
             var ctrller = new Controller(data.Matches, data.Suspenders);
             var agent = CreateAgent(data.Matches, data.Suspenders);
 
-            var policyTsk = new Task<IModel<Assignments, IEnumerable<ActionScore<int>>>>(() => ctrller.Train(env, agent));
+            var policyTsk = new Task<IModel<Assignments, IEnumerable<ActionScore<string>>>>(() => ctrller.Train(env, agent));
 
             savedEnvModels.Add(id, new AssignmentModel { Env = env, Model = policyTsk });
 
@@ -127,7 +127,7 @@ namespace SchedulingAPI.Controllers
             return state => Transform(state, matchIdx, susIdx, count);
         }
 
-        private static Vector Transform(Assignments state, IDictionary<int, int> matchIdx, IDictionary<int, int> susIdx, DataCount count)
+        private static Vector Transform(Assignments state, IDictionary<int, int> matchIdx, IDictionary<string, int> susIdx, DataCount count)
         {
             var arr = Enumerable.Range(0, count.Total).Select(_ => 0.0).ToArray();
 
@@ -165,13 +165,13 @@ namespace SchedulingAPI.Controllers
             return new Vector(arr);
         }
 
-        private static IEnumerable<AssignmentStep> Solve(Assignments state, Models.SuspenderAssignment.Environment env, IModel<Assignments, IEnumerable<ActionScore<int>>> model, PolicyModifier modifier = null)
+        private static IEnumerable<AssignmentStep> Solve(Assignments state, Models.SuspenderAssignment.Environment env, IModel<Assignments, IEnumerable<ActionScore<string>>> model, PolicyModifier modifier = null)
         {
             while (!env.IsTerminalState(state))
             {
                 var actions = model.Compute(state);
 
-                var pickedAction = 0;
+                var pickedAction = string.Empty;
 
                 if (modifier != null && modifier.HasModifier(state.CurrentMatch.MatchId, state.CurrentBettype))
                 {
