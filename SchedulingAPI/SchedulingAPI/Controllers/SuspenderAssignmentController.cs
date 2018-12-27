@@ -40,8 +40,10 @@ namespace SchedulingAPI.Controllers
         }
 
         [HttpPost]
-        public RunStatus CheckStatus([FromBody] string assignmentId)
+        public RunStatus CheckStatus(CheckStatusParam param)
         {
+            var assignmentId = param.AssignmentId; 
+
             if (savedEnvModels.ContainsKey(assignmentId))
             {
                 switch (savedEnvModels[assignmentId].Model.Status)
@@ -72,7 +74,7 @@ namespace SchedulingAPI.Controllers
 
                     case TaskStatus.Canceled:
                     case TaskStatus.Faulted:
-                        return new RunStatus { Code = -1 };
+                        return new RunStatus { Code = -1, Data = $"{savedEnvModels[assignmentId].Model.Exception.Message}\n{savedEnvModels[assignmentId].Model.Exception.StackTrace}" };
 
                     default:
                         return new RunStatus { Code = -1, Data = savedEnvModels[assignmentId].Model.Status.ToString() };

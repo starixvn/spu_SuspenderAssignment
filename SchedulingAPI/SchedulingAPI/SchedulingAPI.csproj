@@ -118,6 +118,7 @@
     <Compile Include="DTO\SuspenderAssignment\AssignmentStep.cs" />
     <Compile Include="DTO\SuspenderAssignment\Assignments.cs" />
     <Compile Include="DTO\SuspenderAssignment\Bettype.cs" />
+    <Compile Include="DTO\SuspenderAssignment\CheckStatusParam.cs" />
     <Compile Include="DTO\SuspenderAssignment\DataHolder.cs" />
     <Compile Include="DTO\SuspenderAssignment\Match.cs" />
     <Compile Include="DTO\SuspenderAssignment\Provider.cs" />
