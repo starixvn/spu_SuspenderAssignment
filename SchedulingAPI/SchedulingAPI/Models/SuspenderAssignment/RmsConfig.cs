@@ -5,7 +5,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 {
     public class RmsConfig : Rms
     {
-        private int maxGame = 500;
+        private int maxGame = 5000;
 
         protected override double LearningRate(int game, int turn)
         {

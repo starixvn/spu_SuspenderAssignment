@@ -7,7 +7,7 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 {
     public class Controller : A3C<Assignments, string>
     {
-        private int maxGame = 500;
+        private int maxGame = 5000;
 
         private IDictionary<string, int> susIndexer;
 

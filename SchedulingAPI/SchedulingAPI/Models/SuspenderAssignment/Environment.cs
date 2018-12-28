@@ -66,7 +66,11 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
             if (action != null && newState.AssignedSuspenderMatch.ContainsKey(action))
             {
-                newState.AssignedSuspenderMatch[action].Add(state.CurrentMatch.MatchId);
+                var newAssigned = new HashSet<int>(newState.AssignedSuspenderMatch[action]);
+
+                newAssigned.Add(state.CurrentMatch.MatchId);
+
+                newState.AssignedSuspenderMatch[action] = newAssigned;
             }
             else if (action != null)
             {
@@ -75,7 +79,11 @@ namespace SchedulingAPI.Models.SuspenderAssignment
 
             if (action != null && newState.AssignedSuspenderBettype.ContainsKey(action))
             {
-                newState.AssignedSuspenderBettype[action].Add(state.CurrentBettype);
+                var newAssigned = new HashSet<Bettype>(newState.AssignedSuspenderBettype[action]);
+
+                newAssigned.Add(state.CurrentBettype);
+
+                newState.AssignedSuspenderBettype[action] = newAssigned;
             }
             else if (action != null)
             {
