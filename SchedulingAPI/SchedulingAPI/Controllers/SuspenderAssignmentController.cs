@@ -125,11 +125,12 @@ namespace SchedulingAPI.Controllers
         {
             var matchIdx = matches.Select((m, i) => Tuple.Create(m.MatchId, i)).ToDictionary(t => t.Item1, t => t.Item2);
             var susIdx = suspenders.Select((s, i) => Tuple.Create(s.SusId, i)).ToDictionary(t => t.Item1, t => t.Item2);
+            var btIdx = matches.SelectMany(m => m.PickedBettypes).Distinct().Select((b, i) => Tuple.Create(b, i)).ToDictionary(t => t.Item1, t => t.Item2);
 
-            return state => Transform(state, matchIdx, susIdx, count);
+            return state => Transform(state, matchIdx, susIdx, btIdx, count);
         }
 
-        private static Vector Transform(Assignments state, IDictionary<int, int> matchIdx, IDictionary<string, int> susIdx, DataCount count)
+        private static Vector Transform(Assignments state, IDictionary<int, int> matchIdx, IDictionary<string, int> susIdx, IDictionary<Bettype, int> btIdx, DataCount count)
         {
             var arr = Enumerable.Range(0, count.Total).Select(_ => 0.0).ToArray();
 
@@ -162,7 +163,7 @@ namespace SchedulingAPI.Controllers
             idx += count.SuspenderCount * count.BettypeCount;
 
             arr[idx + matchIdx[state.CurrentMatch.MatchId]] = 1;
-            arr[idx + count.MatchCount + (int)state.CurrentBettype] = 1;
+            arr[idx + count.MatchCount + btIdx[state.CurrentBettype]] = 1;
 
             return new Vector(arr);
         }
