@@ -40,9 +40,9 @@ namespace SchedulingAPI.Controllers
         }
 
         [HttpPost]
-        public RunStatus CheckStatus(CheckStatusParam param)
+        public RunStatus CheckStatus(CheckStatusParam parameter)
         {
-            var assignmentId = param.AssignmentId; 
+            var assignmentId = parameter.AssignmentId; 
 
             if (savedEnvModels.ContainsKey(assignmentId))
             {
@@ -109,7 +109,7 @@ namespace SchedulingAPI.Controllers
             {
                 MatchCount = matches.Count(),
                 SuspenderCount = suspenders.Count(),
-                BettypeCount = Enum.GetValues(typeof(Bettype)).Length
+                BettypeCount = matches.SelectMany(m => m.PickedBettypes).Distinct().Count()
             };
 
             var transformer = CreateTransformer(matches, suspenders, count);

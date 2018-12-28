@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace SchedulingAPI
 {
@@ -23,6 +24,12 @@ namespace SchedulingAPI
 
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
+
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
+#if DEBUG
+            config.Services.Replace(typeof(IExceptionLogger), new ExceptionLogger());
+#endif
         }
     }
 }
