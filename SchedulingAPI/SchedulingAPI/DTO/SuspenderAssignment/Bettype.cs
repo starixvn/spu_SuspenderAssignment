@@ -30,6 +30,15 @@
         _2H_1st_Throw_In,
         Last_Free_Kick,
         _2H_1st_Free_Kick,
-        Next_Goal
+        Next_Goal,
+        Away_Single_Team_OU_of_Corners,
+        Home_Single_Team_OU_of_Corners,
+        Away_Single_Team_OU,
+        Home_Single_Team_OU,
+        Last_Booking,
+        Last_Corners,
+        Winner,
+        Next_Booking,
+        Next_Corners
     }
 }
