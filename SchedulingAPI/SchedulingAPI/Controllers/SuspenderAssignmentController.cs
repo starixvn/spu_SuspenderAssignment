@@ -80,8 +80,7 @@ namespace SchedulingAPI.Controllers
                         return new RunStatus { Code = -1, Data = savedEnvModels[assignmentId].Model.Status.ToString() };
                 }
             }
-
-            throw new InvalidOperationException($"invalid id {assignmentId}");
+            return new RunStatus { Code = -1 , Data = new AssignmentStep[] { }};
         }
 
         [HttpPost]
@@ -99,7 +98,7 @@ namespace SchedulingAPI.Controllers
                     Steps = Solve(envModel.Env.CreateInitialState(), envModel.Env, envModel.Model.Result, modifier)
                 };
             }
-
+                        
             throw new InvalidOperationException($"No model with id {assignmentId}");
         }
 
